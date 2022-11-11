@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainfuck reader</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div class="container">
+        <p>
+            Brainfuck:</br>
+            <textarea id="input" oninput="Compile(this.value);" spellcheck="false"></textarea>  
+        </p>
+        <!-- <button type="button" onclick="Compile(stdin.value);">run</button> -->
+        <p>
+            Original:</br>   
+            <textarea id="output" spellcheck="false"></textarea>
+        </p>
+    </div>
+
+    <script src="./script/index.js"></script>
+</body>
+</html>

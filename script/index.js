@@ -1,4 +1,3 @@
-const stdout = document.getElementById('output');
 const main = {
     ['>']: "pointer++;",
     ['<']: "pointer--;",
@@ -7,11 +6,12 @@ const main = {
     ['[']: "while(memory[pointer]!=0 && rep<260){rep++;",
     [']']: "}; rep=0;",
     [',']: "memory[pointer]=parseInt(prompt(',')); Check();",
-    ['.']: "answer = answer+(String.fromCharCode(memory[pointer]));"
+    ['.']: "answer += (String.fromCharCode(memory[pointer]));"
 }
+const size = 1024;
 
 function Compile(text) {
-    var memory = {}; for(i=0;i<16;i++){memory[i]=0};
+    var memory = Array(size).fill(0); 
     var pointer = 8;
     var answer = '';
     var rep = 0;
@@ -27,15 +27,14 @@ function Compile(text) {
     }
 
     text.replace(/([^\[\].,+-><])/g,'').split('').forEach((obj) => {
-        if(main[obj] != undefined){
-            code = code+main[obj]+'\n';
-        }
+        code += main[obj]+'\n';
     });
 
     try {
         eval(code);
-        stdout.value = answer;
     } catch (e) {
-        stdout.value = "Can't run there is an error in code";
+        answer = "Can't run there is an error in code";
     }
+
+    document.getElementById('output').value = answer;
 }

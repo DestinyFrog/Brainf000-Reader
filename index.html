@@ -2,19 +2,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brainfuck reader</title>
+    <title>Brainf000 reader</title>
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <div class="container">
-        <p>
-            Brainfuck:</br>
-            <textarea id="input" oninput="Compile(this.value);" spellcheck="false"></textarea>  
+        <p class="cont1">
+            Brainfuck:</br><textarea id="input" oninput="Compile(this.value);" spellcheck="false">
+ESSE É UM PROGRAMA HELLO WORLD !!
+EM BRAINFUCK
+
+H ++++++++++[>+++++++&lt-]>++.
+e -- &lt++++++++[>++++&lt-]>-.
+l +++++++.
+l .
+o +++.
+\ >++++++[>+++++++&lt-]>++.
+#  &lt+++[->----&lt]>.
+W &lt&lt&lt++++++[->----&lt]>.
+o &lt++++++[->++++&lt]>.
+r +++.
+l ------.
+d &lt++++[->--&lt]>.
+# >>.
+! +.
+! .</textarea>  
         </p>
-        <!-- <button type="button" onclick="Compile(stdin.value);">run</button> -->
-        <p>
-            Original:</br>   
-            <textarea id="output" spellcheck="false"></textarea>
+        <p class="cont2">
+            Original:   Live: <input type="checkbox" onchange="can = !can;"></br>
+            <textarea id="output" spellcheck="false"
+            oninput="UnCompile(this.value);"></textarea>
         </p>
     </div>
 
